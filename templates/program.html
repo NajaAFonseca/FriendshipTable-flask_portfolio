@@ -1,0 +1,32 @@
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
+
+<!- This variable sets name of browser tab  -->
+{% set project = "Program and Purpose" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>Program</strong></h1>
+        <p class="text-secondary">Our project is going to be a game that we create as team. We were thinking of creating a snake game as a team.</p>
+        <p class="text-secondary">The program is going to be a game that users can interact with using the arrow keys as input to make the 
+            snake move. The output will be the snake moving, preferably towards what the snake wants in order to grow bigger. Which leads to the 
+            purpose of the snake which is to grow big and avoid hitting the walls/itself. 
+        </p>
+
+        <h1 class="text-primary"><strong>Purpose</strong></h1>
+        <p class="text-secondary">The purpose of this project is to collaborate as a team and create a game.
+            It's also to be able to learn more and see how far our skills in comp sci can currently take us. And most importantly our purpose 
+            is to make a game that we think users would enjoy that is simple and fun. :)
+        </p>
+
+    </div><div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>Roles</strong></h1>
+        <p class="text-secondary">Our Friendship group consists of Naja, Lina, Lydia, and Dylan</p>
+        <p class="text-secondary">Naja is the backend developer, Lina is the DevOp, Lydia is the scrum master, and Dylan is the frtonend developer.
+        </p>
+{% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
+{% endblock %}
