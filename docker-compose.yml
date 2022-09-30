@@ -13,4 +13,4 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/ubuntu/FriendshipTable-flask_portfolio/volumes
+      device: /home/flask_portfolio/volumes
