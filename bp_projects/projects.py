@@ -16,7 +16,7 @@ def kangaroos():
 
 @app_projects.route('/walruses/')
 def walruses():
-    return render_template("walruses.html")
+    return render_template("https://github.com/linaawad1/lina.github.io.git")
 
 @app_projects.route('/hawkers/')
 def hawkers():
