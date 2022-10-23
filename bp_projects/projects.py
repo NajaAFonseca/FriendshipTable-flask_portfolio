@@ -9,6 +9,9 @@ app_projects = Blueprint('projects', __name__,
 def portfolio():
     return render_template("portfolio.html")
 
+@app_projects.route('/snakegame/')
+def snakegame():
+    return render_template('snakegame.html')
 # connects /kangaroos path to render kangaroos.html
 @app_projects.route('/kangaroos/')
 def kangaroos():
@@ -21,7 +24,3 @@ def walruses():
 @app_projects.route('/hawkers/')
 def hawkers():
     return render_template("hawkers.html")
-
-@app_projects.route('/SnakeGame/')
-def hawkers():
-    return render_template("SnakeGame.html")
