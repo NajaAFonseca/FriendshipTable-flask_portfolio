@@ -29,6 +29,10 @@ def program():
 def issues():
     return render_template("issues.html")
 
+@app.route('/snakegame/')
+def snakegame():
+    return render_template("snakegame.html")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
