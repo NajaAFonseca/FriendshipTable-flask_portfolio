@@ -1,17 +1,34 @@
-<table>
-    <tr>
-     <th>Lina</th>
-     <th>Dylan</th>
-     <th>Naja</th>
-     <th>Lydia</th>
-     <th>Group</th>
-    </tr>
+<!-- Extending the predefined project layout -->
+{% extends "layouts/base.html" %}
 
-   <tr>
-        <td>Stuff</td>
-        <td>Stuff</td>
-        <td>stuff</td>
-        <td>stuff</td>
-        <td>stuff</td>
-        <td>stuff</td>
-    </tr>
+<!- This variable sets name of browser tab  -->
+{% set project = "Issues" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    <div class="px-5 py-5 mx-auto">
+        <h1 class="text-primary"><strong>Our Issues</strong></h1>
+
+        <table>
+            <tr>
+                <th>Lina</th>
+                <th>Dylan</th>
+                 <th>Naja</th>
+                <th>Lydia</th>
+                <th>Group</th>
+            </tr>
+
+            <tr>
+                <td>Stuff</td>
+                <td>Stuff</td>
+                <td>stuff</td>
+                <td>stuff</td>
+                <td>stuff</td>
+                <td>stuff</td>
+            </tr>
+
+    {% endblock %}
+
+<!- This is turning off birds background from base.html -->
+{% block background %}
+{% endblock %}
