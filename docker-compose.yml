@@ -1,10 +1,10 @@
 version: '3'
 services:
         web:
-                image: flask_linaa_v1
+                image: flask_friendship_v1
                 build: .
                 ports:
-                        - "1028:8080"
+                        - "8043:8080"
                 volumes:
                         - persistent_volume:/app/volumes
 volumes:
