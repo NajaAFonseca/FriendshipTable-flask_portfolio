@@ -25,6 +25,9 @@ def stub():
 def program():
     return render_template("program.html")
 
+@app.route('/issues/')
+def issues():
+    return render_template("issues.html")
 
 # this runs the application on the development server
 if __name__ == "__main__":
