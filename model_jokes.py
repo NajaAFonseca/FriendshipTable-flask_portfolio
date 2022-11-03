@@ -17,7 +17,7 @@ def initJokes():
     # setup jokes into a dictionary with id, joke, haha, boohoo
     item_id = 0
     for item in joke_list:
-        jokes_data.append({"id": item_id, "joke": item, "haha": 0, "boohoo": 0})
+        jokes_data.append({"id": item_id, "question": item, "yes": 0, "no": 0})
         item_id += 1
     # prime some haha responses
     for i in range(10):
