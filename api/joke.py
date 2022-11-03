@@ -1,17 +1,16 @@
 import random
 
 import requests  # used for testing
-from flask import (Blueprint,  # jsonify creates an endpoint response object
-                   jsonify)
+from flask import Blueprint  # jsonify creates an endpoint response object
+from flask import jsonify
 from flask_restful import Api, Resource  # used for REST API building
+from model_faq import *
 
-from model_jokes import *
-
-joke_api = Blueprint('joke_api', __name__,
-                   url_prefix='/api/jokes')
+faq_api = Blueprint('faq_api', __name__,
+                   url_prefix='/api/faq')
 
 # API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
-api = Api(joke_api)
+api = Api(faq_api)
 
 class JokesAPI:
     # not implemented
@@ -22,7 +21,7 @@ class JokesAPI:
     # getJokes()
     class _Read(Resource):
         def get(self):
-            return jsonify(getJokes())
+            return jsonify(getJoke())
 
     # getJoke(id)
     class _ReadID(Resource):
