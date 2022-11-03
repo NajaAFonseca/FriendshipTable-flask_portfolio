@@ -1,8 +1,8 @@
 import random
 
-jokes_data = []
-joke_list = [
- "Q: How do you play Snake? A: Move the snake around to eat the blocks!",
+faq_data = []
+faq_list = [
+    "Q: How do you play Snake? A: Move the snake around to eat the blocks!",
     "Q: How do you move the snake? A: Use the arrow keys to move.",
     "Q: Can you move through the snakes body? A: If you hit the snake's tail, you lose!",
     "Q: What happens if you run into the border? A: You lose if your snake hits the border :(",
@@ -17,7 +17,7 @@ def initJokes():
     # setup jokes into a dictionary with id, joke, haha, boohoo
     item_id = 0
     for item in joke_list:
-        jokes_data.append({"id": item_id, "question": item, "yes": 0, "no": 0})
+        faq_data.append({"id": item_id, "joke": item, "haha": 0, "boohoo": 0})
         item_id += 1
     # prime some haha responses
     for i in range(10):
@@ -30,15 +30,15 @@ def initJokes():
         
 # Return all jokes from jokes_data
 def getJokes():
-    return(jokes_data)
+    return(faq_data)
 
 # Joke getter
 def getJoke(id):
-    return(jokes_data[id])
+    return(faq_data[id])
 
 # Return random joke from jokes_data
 def getRandomJoke():
-    return(random.choice(jokes_data))
+    return(random.choice(faq_data))
 
 # Liked joke
 def favoriteJoke():
@@ -48,7 +48,7 @@ def favoriteJoke():
         if joke['haha'] > best:
             best = joke['haha']
             bestID = joke['id']
-    return jokes_data[bestID]
+    return faq_data[bestID]
     
 # Jeered joke
 def jeeredJoke():
@@ -58,17 +58,17 @@ def jeeredJoke():
         if joke['boohoo'] > worst:
             worst = joke['boohoo']
             worstID = joke['id']
-    return jokes_data[worstID]
+    return faq_data[worstID]
 
 # Add to haha for requested id
 def addJokeHaHa(id):
-    jokes_data[id]['haha'] = jokes_data[id]['haha'] + 1
-    return jokes_data[id]['haha']
+    faq_data[id]['haha'] = faq_data[id]['haha'] + 1
+    return faq_data[id]['haha']
 
 # Add to boohoo for requested id
 def addJokeBooHoo(id):
-    jokes_data[id]['boohoo'] = jokes_data[id]['boohoo'] + 1
-    return jokes_data[id]['boohoo']
+    faq_data[id]['boohoo'] = faq_data[id]['boohoo'] + 1
+    return faq_data[id]['boohoo']
 
 # Pretty Print joke
 def printJoke(joke):
@@ -76,7 +76,7 @@ def printJoke(joke):
 
 # Number of jokes
 def countJokes():
-    return len(jokes_data)
+    return len(faq_data)
 
 # Test Joke Model
 if __name__ == "__main__": 
