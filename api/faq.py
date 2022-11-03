@@ -4,7 +4,10 @@ import requests  # used for testing
 from flask import Blueprint  # jsonify creates an endpoint response object
 from flask import jsonify
 from flask_restful import Api, Resource  # used for REST API building
+
 from model_faq import *
+
+url = "https://friendship.nighthawkcodingteams.cf/"
 
 faq_api = Blueprint('faq_api', __name__,
                    url_prefix='/api/faq')
