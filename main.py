@@ -33,6 +33,10 @@ def issues():
 def snakegame():
     return render_template("snakegame.html")
 
+@app.route('/api/')
+def api():
+    return render_template("api.py")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)

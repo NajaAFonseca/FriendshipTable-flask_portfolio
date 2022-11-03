@@ -11,3 +11,6 @@ faq_list = [
     "Q: What College Board criteria does this game meet? A: All because we just amazing like that"
     "Q: Who is the coolest teacher? A: Mr. Yeung of course"
 ]
+
+def getFaq():
+    return(faq_data)
