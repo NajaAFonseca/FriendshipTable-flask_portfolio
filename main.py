@@ -36,6 +36,10 @@ def issues():
 def snakegame():
     return render_template("snakegame.html")
 
+@app.route('/model_faq/')
+def model_faq():
+    return render_template("model_faq.py")
+
 # this runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
