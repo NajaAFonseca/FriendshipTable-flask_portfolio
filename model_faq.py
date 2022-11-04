@@ -13,86 +13,86 @@ faq_list = [
 ]
 
 # Initialize jokes
-def initJokes():
-    # setup jokes into a dictionary with id, joke, haha, boohoo
+def initQuestion():
+    # setup Question into a dictionary with id, Question, Helpful, Not Helpful
     item_id = 0
     for item in faq_list:
-        faq_data.append({"id": item_id, "joke": item, "haha": 0, "boohoo": 0})
+        faq_data.append({"id": item_id, "Question": item, "Helpful": 0, "Not Helpful": 0})
         item_id += 1
-    # prime some haha responses
+    # prime some Helpful responses
     for i in range(10):
-        id = getRandomJoke()['id']
-        addJokeHaHa(id)
-    # prime some haha responses
+        id = getRandomQuestion()['id']
+        addQuestionHelpful(id)
+    # prime some Helpful responses
     for i in range(5):
-        id = getRandomJoke()['id']
-        addJokeBooHoo(id)
+        id = getRandomQuestion()['id']
+        addQuestionNotHelpful(id)
         
-# Return all jokes from jokes_data
-def getJokes():
+# Return all questions from faq_data
+def getQuestion():
     return(faq_data)
 
-# Joke getter
-def getJoke(id):
+# question getter
+def getQuestion(id):
     return(faq_data[id])
 
-# Return random joke from jokes_data
-def getRandomJoke():
+# Return random question from faq_data
+def getRandomQuestion():
     return(random.choice(faq_data))
 
-# Liked joke
-def favoriteJoke():
+# Liked Question
+def favoriteQuestion():
     best = 0
     bestID = -1
-    for joke in getJokes():
-        if joke['haha'] > best:
-            best = joke['haha']
-            bestID = joke['id']
+    for question in getQuestion():
+        if question['Helpful'] > best:
+            best = question['Helpful']
+            bestID = question['id']
     return faq_data[bestID]
     
-# Jeered joke
-def jeeredJoke():
+# Least Helpful Question
+def badQuestion():
     worst = 0
     worstID = -1
-    for joke in getJokes():
-        if joke['boohoo'] > worst:
-            worst = joke['boohoo']
-            worstID = joke['id']
+    for question in getQuestion():
+        if question['Not Helpful'] > worst:
+            worst = question['Not Helpful']
+            worstID = question['id']
     return faq_data[worstID]
 
-# Add to haha for requested id
-def addJokeHaHa(id):
-    faq_data[id]['haha'] = faq_data[id]['haha'] + 1
-    return faq_data[id]['haha']
+# Add to helpful for requested id
+def addQuestionHelpful(id):
+    faq_data[id]['Helpful'] = faq_data[id]['Helpful'] + 1
+    return faq_data[id]['Helpful']
 
-# Add to boohoo for requested id
-def addJokeBooHoo(id):
-    faq_data[id]['boohoo'] = faq_data[id]['boohoo'] + 1
-    return faq_data[id]['boohoo']
+# Add to not helpful for requested id
+def addQuestionNotHelpful(id):
+    faq_data[id]['Not Helpful'] = faq_data[id]['Not Helpful'] + 1
+    return faq_data[id]['Not Helpful']
 
-# Pretty Print joke
-def printJoke(joke):
-    print(joke['id'], joke['joke'], "\n", "haha:", joke['haha'], "\n", "boohoo:", joke['boohoo'], "\n")
+# Print Question
+def printQuestion(question):
+    print(question['id'], question['Question'], "\n", "Helpful:", question['Helpful'], "\n", "Not Helpful:", question['Not Helpful'], "\n")
 
-# Number of jokes
-def countJokes():
+# Number of questions
+def countQuestion():
     return len(faq_data)
 
-# Test Joke Model
+# Test question Model
 if __name__ == "__main__": 
-    initJokes()  # initialize jokes
+    initQuestion()  # initialize questions
     
-    # Most likes and most jeered
-    best = favoriteJoke()
-    print("Most liked", best['haha'])
-    printJoke(best)
-    worst = jeeredJoke()
-    print("Most jeered", worst['boohoo'])
-    printJoke(worst)
+    # Most helpful and least helpful
+    best = favoriteQuestion()
+    print("Most Helpful", best['Helpful'])
+    printQuestion(best)
+    worst = badQuestion()
+    print("Least Helpful", worst['Not Helpful'])
+    printQuestion(worst)
     
-    # Random joke
-    print("Random joke")
-    printJoke(getRandomJoke())
+    # Random question
+    print("Random Question")
+    printQuestion(getRandomQuestion())
     
-    # Count of Jokes
-    print("Jokes Count: " + str(countJokes()))
+    # Count of Questions
+    print("Question Count: " + str(countQuestion()))
