@@ -3,53 +3,53 @@ from flask_restful import Api, Resource # used for REST API building
 import requests  # used for testing 
 import random
 
-from model_faq import *
+from model_jokes import *
 
-app_api = Blueprint('api', __name__,
-                   url_prefix='/api/faq')
+joke_api = Blueprint('joke_api', __name__,
+                   url_prefix='/api/jokes')
 
 # API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
-api = Api(app_api)
+api = Api(joke_api)
 
 class JokesAPI:
     # not implemented
     class _Create(Resource):
-        def post(self, question):
+        def post(self, joke):
             pass
             
-    # getQuestion()
+    # getJokes()
     class _Read(Resource):
         def get(self):
-            return jsonify(getQuestion())
+            return jsonify(getJokes())
 
-    # getQuestion(id)
+    # getJoke(id)
     class _ReadID(Resource):
         def get(self, id):
-            return jsonify(getQuestion(id))
+            return jsonify(getJoke(id))
 
-    # getRandomQuestion()
+    # getRandomJoke()
     class _ReadRandom(Resource):
         def get(self):
-            return jsonify(getRandomQuestion())
+            return jsonify(getRandomJoke())
     
-    # getRandomQuestion()
+    # getRandomJoke()
     class _ReadCount(Resource):
         def get(self):
-            count = countQuestion()
+            count = countJokes()
             countMsg = {'count': count}
             return jsonify(countMsg)
 
-    # put method: addJokeHelpful
-    class _UpdateHelpful(Resource):
+    # put method: addJokeHaHa
+    class _UpdateLike(Resource):
         def put(self, id):
-            addQuestionHelpful(id)
-            return jsonify(getQuestion(id))
+            addJokeHaHa(id)
+            return jsonify(getJoke(id))
 
-    # put method: addJokeNotHelpful
-    class _UpdateNotHelpful(Resource):
+    # put method: addJokeBooHoo
+    class _UpdateJeer(Resource):
         def put(self, id):
-            addQuestionNotHelpful(id)
-            return jsonify(getQuestion(id))
+            addJokeBooHoo(id)
+            return jsonify(getJoke(id))
 
     # building RESTapi resources/interfaces, these routes are added to Web Server
     api.add_resource(_Create, '/create/<string:joke>')
@@ -57,13 +57,13 @@ class JokesAPI:
     api.add_resource(_ReadID, '/<int:id>')
     api.add_resource(_ReadRandom, '/random')
     api.add_resource(_ReadCount, '/count')
-    api.add_resource(_UpdateHelpful, '/helpful/<int:id>')
-    api.add_resource(_UpdateNotHelpful, '/notHelpful/<int:id>')
+    api.add_resource(_UpdateLike, '/like/<int:id>')
+    api.add_resource(_UpdateJeer, '/jeer/<int:id>')
     
 if __name__ == "__main__": 
     # server = "http://127.0.0.1:5000" # run local
-    server = 'https://friendship.nighthawkcodingteams.cf' # run from web
-    url = server + "/api/faq"
+    server = 'https://flask.nighthawkcodingsociety.com' # run from web
+    url = server + "/api/jokes"
     responses = []  # responses list
 
     # get count of jokes on server
@@ -77,18 +77,18 @@ if __name__ == "__main__":
         requests.get(url+"/"+num)  # read joke by id
         ) 
     responses.append(
-        requests.put(url+"/helpful/"+num) # add to like count
+        requests.put(url+"/like/"+num) # add to like count
         ) 
     responses.append(
-        requests.put(url+"/bad/"+num) # add to jeer count
+        requests.put(url+"/jeer/"+num) # add to jeer count
         ) 
 
-    # obtain a random question
+    # obtain a random joke
     responses.append(
         requests.get(url+"/random")  # read a random joke
         ) 
 
-    # cycle through questions
+    # cycle through responses
     for response in responses:
         print(response)
         try:

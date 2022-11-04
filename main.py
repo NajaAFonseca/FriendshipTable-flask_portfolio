@@ -5,6 +5,7 @@ from flask import \
 # import "packages" from "this" project
 from __init__ import app  # Definitions initialization
 from api import app_api  # Blueprint import api definition
+from api.joke import joke_api  # Blueprint import api definition
 from bp_projects.projects import \
     app_projects  # Blueprint directory import projects definition
 
