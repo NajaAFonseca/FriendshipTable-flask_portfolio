@@ -12,7 +12,7 @@ faq_list = [
     "Q: Who is the coolest teacher? A: Mr. Yeung of course"
 ]
 
-# Initialize jokes
+# Initialize questions
 def initQuestion():
     # setup Question into a dictionary with id, Question, Helpful, Not Helpful
     item_id = 0
